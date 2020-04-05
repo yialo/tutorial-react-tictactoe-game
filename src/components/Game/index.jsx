@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Board from './Board.jsx';
-import BoardSize from '../utils/board-size.js';
-import calculateWinner from '../utils/calculate-winner.js';
+import Board from '../Board/index.jsx';
+import BoardSize from '../../utils/board-size.js';
+import calculateWinner from '../../utils/calculate-winner.js';
 
 export default class Game extends React.Component {
   constructor(props) {

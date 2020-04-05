@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Square from './Square.jsx';
-import BoardSize from '../utils/board-size.js';
+import Square from '../Square/index.jsx';
+import BoardSize from '../../utils/board-size.js';
 
 export default class Board extends React.Component {
   renderCol(rowIndex, colIndex) {
