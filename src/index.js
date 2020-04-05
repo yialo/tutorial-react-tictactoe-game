@@ -1,4 +1,4 @@
-import './index.scss';
+import './common.scss';
 
 import initApp from './init-app.jsx';
 

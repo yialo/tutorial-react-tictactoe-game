@@ -1,0 +1,15 @@
+.square {
+  --square-size: 48px;
+
+  background: #fff;
+  border: 1px solid #999;
+  font-size: calc(var(--square-size) * 12 / 17);
+  font-weight: bold;
+  line-height: var(--square-size);
+  width: var(--square-size);
+  height: var(--square-size);
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+}

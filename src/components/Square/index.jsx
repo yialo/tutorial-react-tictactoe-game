@@ -1,3 +1,4 @@
+import './index.scss';
 import React from 'react';
 
 export default function Square(props) {

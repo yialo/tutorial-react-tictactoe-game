@@ -1,3 +1,4 @@
+import './index.scss';
 import React from 'react';
 
 import Board from '../Board/index.jsx';
@@ -74,7 +75,10 @@ export default class Game extends React.Component {
     });
 
     return (
-      <div className="game">
+      <main className="game">
+        <h1 className="game__title">
+          <a className="game__reference" href="https://reactjs.org/tutorial/tutorial.html">React official tutorial: Tic Tac Toe</a>
+        </h1>
         <div className="game__board">
           <Board
             squares={current.squares}
@@ -84,10 +88,10 @@ export default class Game extends React.Component {
           />
         </div>
         <div className="game__info">
-          <div>{status}</div>
+          <div className="game__status">{status}</div>
           <ol>{moves}</ol>
         </div>
-      </div>
+      </main>
     );
   }
 }

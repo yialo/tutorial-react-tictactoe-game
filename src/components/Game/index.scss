@@ -1,0 +1,42 @@
+.game {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: auto 1fr;
+  padding: 20px;
+
+  &__board {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+
+  &__info {
+    grid-area: 2 / 2 / 3 / 3;
+    margin-left: 20px;
+  }
+
+  &__reference {
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__status {
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    grid-area: 1 / 1 / 2 / 3;
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-weight: 400;
+    font-size: 20px;
+  }
+}
+
+.step-button {
+  &--current {
+    font-weight: 700;
+  }
+}
