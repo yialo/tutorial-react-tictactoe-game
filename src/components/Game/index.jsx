@@ -56,11 +56,11 @@ export default class Game extends React.PureComponent {
         ? 'Go to game start'
         : `Go to step #${step}`;
       return (
-        <li key={step}>
+        <li className="game__move" key={step}>
           <button
             className={
-              ['step-button']
-                .concat(step === stepNumber ? 'step-button--current' : [])
+              ['game__button']
+                .concat(step === stepNumber ? 'game__button--current' : [])
                 .join(' ')
             }
             type="button"
@@ -88,7 +88,7 @@ export default class Game extends React.PureComponent {
         />
         <div className="game__info">
           <div className="game__status">{status}</div>
-          <ol>{moves}</ol>
+          <ol className="game__history">{moves}</ol>
         </div>
       </main>
     );

@@ -8,7 +8,7 @@ export default function Square(props) {
       className={['square'].concat(classNames ?? []).join(' ')}
       onClick={onClick}
     >
-      <span>{value}</span>
+      {value && <span>{value}</span>}
     </button>
   );
 }

@@ -1,6 +1,6 @@
 .board {
   display: grid;
-  grid-template: repeat(3, var(--square-size)) / repeat(3, var(--square-size));
+  grid-template: repeat(3, var(--size_square)) / repeat(3, var(--size_square));
 }
 
 .board__field {
