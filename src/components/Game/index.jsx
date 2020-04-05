@@ -5,7 +5,7 @@ import Board from '../Board/index.jsx';
 import BoardSize from '../../utils/board-size.js';
 import calculateWinner from '../../utils/calculate-winner.js';
 
-export default class Game extends React.Component {
+export default class Game extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -79,14 +79,13 @@ export default class Game extends React.Component {
         <h1 className="game__title">
           <a className="game__reference" href="https://reactjs.org/tutorial/tutorial.html">React official tutorial: Tic Tac Toe</a>
         </h1>
-        <div className="game__board">
-          <Board
-            squares={current.squares}
-            onClick={(i) => {
-              this.handleClick(i);
-            }}
-          />
-        </div>
+        <Board
+          classNames="game__board"
+          squares={current.squares}
+          onClick={(i) => {
+            this.handleClick(i);
+          }}
+        />
         <div className="game__info">
           <div className="game__status">{status}</div>
           <ol>{moves}</ol>

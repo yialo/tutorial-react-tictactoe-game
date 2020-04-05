@@ -4,6 +4,10 @@
   box-sizing: inherit;
 }
 
+:root {
+  --square-size: 64px;
+}
+
 html {
   box-sizing: border-box;
 }
