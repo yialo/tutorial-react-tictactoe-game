@@ -42,12 +42,13 @@
 
     &::before {
       content: counter(history-item);
-      margin-right: 8px;
-      width: 12px;
-      font-size: 16px;
-      line-height: 22px;
-      text-align: center;
       counter-increment: history-item;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 2px;
+      width: 14px;
+      font-size: 16px;
     }
 
     &:not(:last-child) {
