@@ -1,5 +1,5 @@
 import './index.scss';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import Board from '../Board/index.jsx';
 import BoardSize from '../../utils/board-size.js';
@@ -25,7 +25,7 @@ export default function Game() {
     ? `Winner: ${gameWinnerData.symbol}`
     : `Next player: ${state.isXNext ? 'X' : 'O'}`;
 
-  const handleClick = (i) => {
+  const handleClick = useCallback((i) => {
     const history = state.history.slice(0, state.stepNumber + 1);
     const current = history[history.length - 1];
     const isWon = Boolean(calculateWinner(current.squares));
@@ -40,15 +40,15 @@ export default function Game() {
       isXNext: !prevState.isXNext,
       stepNumber: history.length,
     }));
-  }
+  }, [state]);
 
-  const handleJumpTo = (step) => {
+  const handleJumpTo = useCallback((step) => {
     setState((prevState) => ({
       ...prevState,
       stepNumber: step,
       isXNext: step % 2 === 0,
     }));
-  }
+  }, []);
 
   const moves = state.history.map((_item, step) => {
     const legend = (step === 0)
@@ -70,7 +70,7 @@ export default function Game() {
           {legend}
         </button>
       </li>
-    )
+    );
   });
 
   return (
