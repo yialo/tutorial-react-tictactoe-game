@@ -1,17 +1,21 @@
-import './index.scss';
 import React from 'react';
+import styled from 'styled-components';
 
 import Square from '../Square/index.jsx';
 import BoardSize from '../../utils/board-size.js';
 
+const StyledSquare = styled(Square)`
+  margin-top: -1px;
+  margin-right: -1px;
+`;
+
 function Board(props) {
-  const { classNames, squares, winnerLine, onClick } = props;
+  const { className, squares, winnerLine, onClick } = props;
   return (
-    <div className={['board'].concat(classNames ?? []).join(' ')}>
+    <div className={className}>
       {new Array(BoardSize.getTotal()).fill(null).map((_it, i) => (
-        <Square
+        <StyledSquare
           key={i}
-          classNames="board__field"
           value={squares[i]}
           isHighlighted={winnerLine.includes(i)}
           onClick={() => {
@@ -23,4 +27,10 @@ function Board(props) {
   );
 }
 
-export default Board;
+const Styled = styled(Board)`
+  --grid-line: repeat(3, var(--size_square));
+  display: grid;
+  grid-template: var(--grid-line) / var(--grid-line);
+`;
+
+export default Styled;

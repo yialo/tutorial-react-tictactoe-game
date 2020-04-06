@@ -1,9 +1,20 @@
-import './index.scss';
 import React, { useCallback, useState } from 'react';
 
-import Board from '../Board/index.jsx';
 import BoardSize from '../../utils/board-size.js';
 import calculateWinner from '../../utils/calculate-winner.js';
+import Styled from './styled.js';
+
+const {
+  Board,
+  History,
+  Info,
+  Main,
+  Move,
+  MoveButton,
+  Reference,
+  Status,
+  Title,
+} = Styled;
 
 const INITIAL_STATE = {
   history: [
@@ -55,39 +66,36 @@ export default function Game() {
       ? 'Go to game start'
       : `Go to step #${step}`;
     return (
-      <li className="game__move" key={step}>
-        <button
-          className={
-            ['game__button']
-              .concat(step === state.stepNumber ? 'game__button--current' : [])
-              .join(' ')
-          }
+      <Move key={step}>
+        <MoveButton
+          isCurrent={step === state.stepNumber}
           type="button"
           onClick={() => {
             handleJumpTo(step);
           }}
         >
           {legend}
-        </button>
-      </li>
+        </MoveButton>
+      </Move>
     );
   });
 
   return (
-    <main className="game">
-      <h1 className="game__title">
-        <a className="game__reference" href="https://reactjs.org/tutorial/tutorial.html">React official tutorial: Tic Tac Toe</a>
-      </h1>
+    <Main>
+      <Title>
+        <Reference href="https://reactjs.org/tutorial/tutorial.html">
+          React official tutorial: Tic Tac Toe
+        </Reference>
+      </Title>
       <Board
-        classNames="game__board"
         squares={current.squares}
         winnerLine={gameWinnerData ? gameWinnerData.line : []}
         onClick={handleClick}
       />
-      <div className="game__info">
-        <div className="game__status">{status}</div>
-        <ol className="game__history">{moves}</ol>
-      </div>
-    </main>
+      <Info>
+        <Status>{status}</Status>
+        <History>{moves}</History>
+      </Info>
+    </Main>
   );
 }
