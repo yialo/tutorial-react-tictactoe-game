@@ -5,5 +5,9 @@
   font-size: calc(var(--size_square) * 2 / 3);
   line-height: var(--size_square);
   text-align: center;
-  background-color: #fff;
+  background-color: white;
+
+  &--highlighted {
+    color: red;
+  }
 }

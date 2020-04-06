@@ -4,8 +4,8 @@ import React from 'react';
 import Square from '../Square/index.jsx';
 import BoardSize from '../../utils/board-size.js';
 
-export default function Board(props) {
-  const { classNames, squares, onClick } = props;
+function Board(props) {
+  const { classNames, squares, winnerLine, onClick } = props;
   return (
     <div className={['board'].concat(classNames ?? []).join(' ')}>
       {new Array(BoardSize.getTotal()).fill(null).map((_it, i) => (
@@ -13,6 +13,7 @@ export default function Board(props) {
           key={i}
           classNames="board__field"
           value={squares[i]}
+          isHighlighted={winnerLine.includes(i)}
           onClick={() => {
             onClick(i);
           }}
@@ -21,3 +22,5 @@ export default function Board(props) {
     </div>
   );
 }
+
+export default Board;

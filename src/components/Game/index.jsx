@@ -19,17 +19,17 @@ export default function Game() {
   const [state, setState] = useState(INITIAL_STATE);
 
   const current = state.history[state.stepNumber];
-  const winner = calculateWinner(current.squares);
+  const gameWinnerData = calculateWinner(current.squares);
 
-  const status = winner
-    ? `Winner: ${winner}`
+  const status = gameWinnerData
+    ? `Winner: ${gameWinnerData.symbol}`
     : `Next player: ${state.isXNext ? 'X' : 'O'}`;
 
   const handleClick = (i) => {
     const history = state.history.slice(0, state.stepNumber + 1);
     const current = history[history.length - 1];
-    const winner = calculateWinner(current.squares);
-    if (winner || current.squares[i]) {
+    const isWon = Boolean(calculateWinner(current.squares));
+    if (isWon || current.squares[i]) {
       return;
     }
     const squares = [...current.squares];
@@ -81,9 +81,8 @@ export default function Game() {
       <Board
         classNames="game__board"
         squares={current.squares}
-        onClick={(i) => {
-          handleClick(i);
-        }}
+        winnerLine={gameWinnerData ? gameWinnerData.line : []}
+        onClick={handleClick}
       />
       <div className="game__info">
         <div className="game__status">{status}</div>
